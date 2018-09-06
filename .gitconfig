@@ -1,0 +1,37 @@
+[user]
+	name = Chris Jones
+	email = chrisj@q4inc.com
+[core]
+    autocrlf = true
+[alias]
+  st = status -sb
+  ci = commit -as
+  br = branch
+  co = checkout
+  df = diff
+  ready = rebase -i @{u}
+  lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday --author chrisj@q4inc.com
+  purr = pull --rebase
+  open = !explorer `git config remote.origin.url`
+  browse = !git open  
+[credential]
+[mergetool]
+    prompt = false
+    keepBackup = false
+    keepTemporaries = false
+[merge]
+    tool = winmerge
+[mergetool "winmerge"]
+    name = WinMerge
+    cmd = "/c/Program\\ Files\\ \\(x86\\)/WinMerge/WinMergeU.exe" -u -e -dl \"Local\" -dr \"Remote\" $LOCAL $REMOTE $MERGED
+[diff]
+    tool = winmerge
+[difftool "winmerge"]
+    name = WinMerge
+    cmd = "/c/Program\\ Files\\ \\(x86\\)/WinMerge/WinMergeU.exe" -u -e $LOCAL $REMOTE
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
