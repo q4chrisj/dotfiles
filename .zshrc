@@ -1,8 +1,12 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+GITSTATUS_LOG_LEVEL=DEBUG
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+export PATH=$HOME/bin:/usr/local/bin:$HOME/dotnet:$PATH
+ 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/chrisjones/.oh-my-zsh"
+export TEAMCITY_ACCESS_TOKEN=eyJ0eXAiOiAiVENWMiJ9.R0dUX2xqVjBjZDgxMVlNcTN3a2pvNUM5UXFr.N2ZjN2YwZTgtYjg0Ny00YmJjLTk1YmQtN2I1ZWU5YWQwODE0
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -31,7 +35,7 @@ POWERLEVEL10K_MODE="nerdfont-complete"
 # DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
@@ -71,11 +75,12 @@ POWERLEVEL10K_MODE="nerdfont-complete"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  git-prompt
-  z
-  zsh-syntax-highlighting
-  vscode
-  tmux
+  nvm
+  # git-prompt
+  # z
+  # zsh-syntax-highlighting
+  # vscode
+  # tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -93,6 +98,10 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+#
+
+export VISUAL='nvim'
+export EDITOR='nvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -103,17 +112,78 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="vim ~/.zshrc"
+
+alias cr="cargo run"
+alias e="nvim"
+alias editconfig="e ~/.zshrc"
 alias reloadconfig="source ~/.zshrc"
 alias ll="ls -la"
 alias tx=tmuxinator
 alias start-staging="sh ~/Documents/start_staging.sh"
 alias stop-staging="sh ~/Documents/stop_staging.sh"
+alias tf="terraform"
+alias tfi="terrform init"
+alias tfp="terraform plan"
+alias tfa="terraform apply"
+alias nra="npm run all"
+alias nrs="npm run start"
+alias nrt="npm run test"
+alias nrb="npm run build"
+alias nrl="npm run local"
+alias gac="git add . && git commit -as"
+alias dnb="dotnet build"
+alias dnr="dotnet run"
+alias gcob="g co -b"
+alias tm="tmux"
+alias tmls="tmux ls"
+alias tmns="tmux new-session -s"
+alias tmks="tmux kill-session -t"
+alias resetawscreds="cp ~/.aws/credentials.full ~/.aws/credentials"
+alias awsstudiodev="cp ~/.aws/credentials.studio-dev ~/.aws/credentials"
+alias awsmicrodev="cp ~/.aws/credentials.microservices-dev ~/.aws/credentials"
+alias lg="lazygit"
+
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export EDITOR=/usr/bin/vim
+# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+#
+export NVM_DIR="$HOME/.nvm"
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+alias nvm="unalias nvm; [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"; nvm $@"
 
 source /Users/chrisjones/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# tabtab source for packages
+# uninstall by removing these lines
+#[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
+# eval $(thefuck --alias)
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/chrisjones/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/chrisjones/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/chrisjones/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/chrisjones/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
