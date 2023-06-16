@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
+
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 GITSTATUS_LOG_LEVEL=DEBUG
@@ -5,7 +12,7 @@ GITSTATUS_LOG_LEVEL=DEBUG
 export PATH=$HOME/bin:/usr/local/bin:$HOME/dotnet:$PATH
  
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/chrisjones/.oh-my-zsh"
+export ZSH="/Users/jonezy/.oh-my-zsh"
 export TEAMCITY_ACCESS_TOKEN=eyJ0eXAiOiAiVENWMiJ9.R0dUX2xqVjBjZDgxMVlNcTN3a2pvNUM5UXFr.N2ZjN2YwZTgtYjg0Ny00YmJjLTk1YmQtN2I1ZWU5YWQwODE0
 
 # Set name of the theme to load --- if set to "random", it will
@@ -159,7 +166,7 @@ export NVM_COMPLETION=true
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 alias nvm="unalias nvm; [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"; nvm $@"
 
-source /Users/chrisjones/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /Users/jonezy/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # tabtab source for packages
 # uninstall by removing these lines
@@ -170,7 +177,7 @@ source /Users/chrisjones/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/chrisjones/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/jonezy/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
