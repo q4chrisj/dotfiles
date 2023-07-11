@@ -147,6 +147,7 @@ alias tmns="tmux new-session -s"
 alias tmks="tmux kill-session -t"
 alias resetawscreds="cp ~/.aws/credentials.full ~/.aws/credentials"
 alias awsstudiodev="cp ~/.aws/credentials.studio-dev ~/.aws/credentials"
+alias awsstudiostage="cp ~/.aws/credentials.studio-stage ~/.aws/credentials"
 alias awsmicrodev="cp ~/.aws/credentials.microservices-dev ~/.aws/credentials"
 alias lg="lazygit"
 
