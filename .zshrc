@@ -9,7 +9,7 @@
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 GITSTATUS_LOG_LEVEL=DEBUG
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/dotnet:$PATH
+export PATH=$HOME/go:$HOME/bin:/usr/local/bin:$HOME/dotnet:$PATH
  
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/jonezy/.oh-my-zsh"
@@ -147,9 +147,12 @@ alias tmns="tmux new-session -s"
 alias tmks="tmux kill-session -t"
 alias resetawscreds="cp ~/.aws/credentials.full ~/.aws/credentials"
 alias awsstudiodev="cp ~/.aws/credentials.studio-dev ~/.aws/credentials"
+alias awsstudioprod="cp ~/.aws/credentials.studio-prod ~/.aws/credentials"
 alias awsstudiostage="cp ~/.aws/credentials.studio-stage ~/.aws/credentials"
 alias awsmicrodev="cp ~/.aws/credentials.microservices-dev ~/.aws/credentials"
 alias lg="lazygit"
+alias envc="e ~/.config/nvim/lua/user"
+alias cat="bat"
 
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
