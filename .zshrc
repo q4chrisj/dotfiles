@@ -147,12 +147,18 @@ alias tmns="tmux new-session -s"
 alias tmks="tmux kill-session -t"
 alias resetawscreds="cp ~/.aws/credentials.full ~/.aws/credentials"
 alias awsstudiodev="cp ~/.aws/credentials.studio-dev ~/.aws/credentials"
+alias awsstudiodevcc="cp ~/.aws/credentials.studio-cc-workflow ~/.aws/credentials"
 alias awsstudioprod="cp ~/.aws/credentials.studio-prod ~/.aws/credentials"
 alias awsstudiostage="cp ~/.aws/credentials.studio-stage ~/.aws/credentials"
 alias awsmicrodev="cp ~/.aws/credentials.microservices-dev ~/.aws/credentials"
+alias awsmicrodevcc="cp ~/.aws/credentials-microservices-devcc ~/.aws/credentials"
+alias awsplatformdev="cp ~/.aws/credentials.platform ~/.aws/credentials"
+alias awsplatformprod="cp ~/.aws/credentials.platform-prod ~/.aws/credentials"
 alias lg="lazygit"
 alias envc="e ~/.config/nvim/lua/user"
 alias cat="bat"
+alias dcu="docker-compose up -d"
+alias dcd="docker compose down"
 
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
@@ -176,7 +182,7 @@ alias nvm="unalias nvm; [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"; nvm $@"
 # uninstall by removing these lines
 #[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
 
-# eval $(thefuck --alias)
+eval $(thefuck --alias)
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # >>> conda initialize >>>
